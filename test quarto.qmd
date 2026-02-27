@@ -13,7 +13,8 @@ editor: visual
 
 library(tidyverse) # gen use for cleaning wrangling
 library(lterdatasampler) # package with ltr
-
+library(devtools) # load devtols
+devtools::install_github("an-bui/calecopal") # install calecopal themes
 data(pie_crab) # extracting pie crab
 
 ```
@@ -24,8 +25,14 @@ data(pie_crab) # extracting pie crab
 
 ggplot(data = pie_crab,# dataset to plot
        aes(x = latitude,# x axis is latitude y axis is crab size
-           y = size)) +
-  geom_point() # creating a scatterplot
-
+           y = size,
+           color = site)) + # color points by site
+  geom_point() + # creating scatterplot
+  theme_minimal() + # using a different theme
+  scale_color_manual( # coloring sites with custom colors
+    values = calecopal::cal_palette("superbloom2",
+                                    n = 13,
+                                    type = "continuous")
+  )
 
 ```
