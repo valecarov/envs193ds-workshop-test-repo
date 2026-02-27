@@ -9,6 +9,7 @@ editor: visual
 
 ```{r}
 #| label: reading in packages
+#| message: false
 
 library(tidyverse) # gen use for cleaning wrangling
 library(lterdatasampler) # package with ltr
@@ -19,11 +20,12 @@ data(pie_crab) # extracting pie crab
 
 ```{r}
 #| label: starting exploratory visualization
+#| message: false
 
-ggplot(data = pie_crab,
-       aes(x = latitude,
+ggplot(data = pie_crab,# dataset to plot
+       aes(x = latitude,# x axis is latitude y axis is crab size
            y = size)) +
-  geom_point()
+  geom_point() # creating a scatterplot
 
 
 ```
