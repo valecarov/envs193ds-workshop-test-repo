@@ -6,3 +6,24 @@ editor: visual
 ---
 
 ## 
+
+```{r}
+#| label: reading in packages
+
+library(tidyverse) # gen use for cleaning wrangling
+library(lterdatasampler) # package with ltr
+
+data(pie_crab) # extracting pie crab
+
+```
+
+```{r}
+#| label: starting exploratory visualization
+
+ggplot(data = pie_crab,
+       aes(x = latitude,
+           y = size)) +
+  geom_point()
+
+
+```
